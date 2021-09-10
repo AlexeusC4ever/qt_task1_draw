@@ -16,7 +16,7 @@ std::pair<double, double> PaintArea::findPoint(double x, double y,
     if (angle >= 0 && angle < 90)
     {
         quarter = 1;
-        case1.first = width - 1; // - 1
+        case1.first = width - 1;
         case1.second = y - (width - x - 1) * std::tan(radAngle);
         case2.second = padding;
         case2.first = x + y / std::tan(radAngle);
@@ -69,12 +69,12 @@ std::pair<double, double> PaintArea::findPoint(double x, double y,
             angle = 540 - angle;
             break;
         }
-//        qDebug() << counter++ << "----" << case1.first << "----" << case1.second << "----" << angle;
+       qDebug() << "----" << case1.first << "----" << case1.second << "----" << angle;
         return case1;
     }
     else{
         angle = 360 - angle;
-//        qDebug() << counter++ << "----" << case2.first << "----" << case2.second << "----" << angle;
+        qDebug() << "----" << case2.first << "----" << case2.second << "----" << angle;
         return case2;
     }
 }
@@ -96,29 +96,36 @@ void PaintArea::printNumber(SIDE side,
                             QString cstrC, QPainter& painter)
 {
     painter.setPen(Qt::black);
+    painter.setBrush(Qt::black);
+    QPoint point;
     switch(side)
     {
         case(SIDE::DOWN):
-            painter.drawText(newPoint.first,
-                             newPoint.second + 0.7 *  padding,
-                             cstrC);
+            point = QPoint(newPoint.first,
+                           newPoint.second + 0.7 *  padding);
         break;
         case(SIDE::UP):
-            painter.drawText(newPoint.first,
-                         newPoint.second - 0.3 * padding,
-                         cstrC);
+            point = QPoint(newPoint.first,
+                           newPoint.second - 0.3 * padding);
         break;
         case(SIDE::LEFT):
-            painter.drawText(newPoint.first - 0.7 * padding,
-                             newPoint.second,
-                             cstrC);
+            point = QPoint(newPoint.first - 0.7 * padding,
+                           newPoint.second);
         break;
         case(SIDE::RIGHT):
-            painter.drawText(newPoint.first + 0.3 * padding,
-                             newPoint.second,
-                             cstrC);
+            point = QPoint(newPoint.first + 0.3 * padding,
+                           newPoint.second);
         break;
     }
+
+    const int cnFlags = Qt::TextSingleLine;
+
+    //    QRect rectText(point, QSize(padding, padding));
+    //    painter.drawRect(rectText);
+    //    rectText.adjust(point.x(), point.y(), point.x(), point.y());
+    //    painter.drawText(rectText, Qt::AlignCenter, cstrC);
+
+    painter.drawText(point, cstrC);
 }
 
 void PaintArea::drawMirrorLine(QString x_, QString y_,

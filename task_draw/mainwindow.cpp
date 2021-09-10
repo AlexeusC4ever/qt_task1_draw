@@ -29,16 +29,14 @@ MainWindow::MainWindow(QWidget *parent)
     QAction *pActionFile = pMenuFile->addAction(
                 tr("&Close"),
                 this,
-                SLOT(open()),
-                QKeySequence::Open);
+                SLOT(open()));
     connect(pActionFile, SIGNAL(triggered()), this, SLOT(close()));
 
     QMenu *pMenuData = menuBar()->addMenu(tr("&View"));
     QAction *pActionData = pMenuData->addAction(
                 tr("&Data panel"),
                 this,
-                SLOT(open()),
-                QKeySequence::Open);
+                SLOT(open()));
     connect(pActionData, SIGNAL(triggered()), data, SLOT(show()));
 
     QMessageBox *help = new QMessageBox;
@@ -48,8 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
     QAction *pActionHelp = pMenuHelp->addAction(
                 tr("&About"),
                 this,
-                SLOT(open()),
-                QKeySequence::Open);
+                SLOT(open()));
     connect(pActionHelp, SIGNAL(triggered()), help, SLOT(show()));
 
 //    m_pActionSeparator = pMenuFile->addSeparator();
