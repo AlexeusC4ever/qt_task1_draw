@@ -24,11 +24,11 @@ DataDialog::DataDialog()
     m_pLineEditCoef = new QLineEdit;
     m_pLabelCoef->setBuddy(m_pLineEditCoef);
 
-    x_LineEdit->setText("0");
-    y_LineEdit->setText("0");
-    m_pLineEditAngle->setText("0");
-    m_pLineEditMount->setText("0");
-    m_pLineEditCoef->setText("0");
+    x_LineEdit->setText("12");
+    y_LineEdit->setText("21");
+    m_pLineEditAngle->setText("45");
+    m_pLineEditMount->setText("45");
+    m_pLineEditCoef->setText("0.98");
 
     okButton = new QDialogButtonBox(QDialogButtonBox::Ok);
     connect(okButton, SIGNAL(accepted()), this, SLOT(close()));

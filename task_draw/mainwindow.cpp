@@ -81,6 +81,6 @@ void MainWindow::open()
 
 MainWindow::~MainWindow()
 {
-    delete m_areaForPaint;
+
 }
 
