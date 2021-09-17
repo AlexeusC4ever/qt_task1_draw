@@ -153,7 +153,7 @@ void PaintArea::drawMirrorLine(QString x_, QString y_,
     QPainter painter(&m_Pixmap);
     QBrush brush(Qt::red, Qt::SolidPattern);
 
-    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setRenderHint(QPainter::Antialiasing, false);
     painter.setPen(Qt::red);
     painter.setBrush(brush);
 
@@ -216,7 +216,7 @@ void PaintArea::resizeEvent(QResizeEvent* pEvent)
     QPen pen(Qt::black, 1, Qt::SolidLine, Qt::RoundCap);
     QBrush brush(Qt::white, Qt::SolidPattern);
 
-    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setRenderHint(QPainter::Antialiasing, false);
     painter.setPen(pen);
     painter.setBrush(brush);
 
